@@ -8,17 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		07F5AE062A1DDEDF00C62BA5 /* SwiftUI_Study_MapMarkerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F5AE052A1DDEDF00C62BA5 /* SwiftUI_Study_MapMarkerApp.swift */; };
-		07F5AE082A1DDEDF00C62BA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F5AE072A1DDEDF00C62BA5 /* ContentView.swift */; };
+		07F5AE082A1DDEDF00C62BA5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F5AE072A1DDEDF00C62BA5 /* HomeView.swift */; };
 		07F5AE0A2A1DDEE000C62BA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F5AE092A1DDEE000C62BA5 /* Assets.xcassets */; };
 		07F5AE0D2A1DDEE000C62BA5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F5AE0C2A1DDEE000C62BA5 /* Preview Assets.xcassets */; };
+		07F5AE142A1DE49F00C62BA5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F5AE132A1DE49F00C62BA5 /* Constants.swift */; };
+		07F5AE162A1DE98C00C62BA5 /* MapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F5AE152A1DE98C00C62BA5 /* MapViewRepresentable.swift */; };
+		07F5AE1A2A1DEBC800C62BA5 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F5AE192A1DEBC800C62BA5 /* LocationManager.swift */; };
+		AFAD472155E19AC39C08BA16 /* Pods_SwiftUI_Study_MapMarker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36AEF18438735CAFD2B29858 /* Pods_SwiftUI_Study_MapMarker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01E600A9E574DFA5FA614C5E /* Pods-SwiftUI_Study_MapMarker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUI_Study_MapMarker.debug.xcconfig"; path = "Target Support Files/Pods-SwiftUI_Study_MapMarker/Pods-SwiftUI_Study_MapMarker.debug.xcconfig"; sourceTree = "<group>"; };
 		07F5AE022A1DDEDF00C62BA5 /* SwiftUI_Study_MapMarker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_Study_MapMarker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F5AE052A1DDEDF00C62BA5 /* SwiftUI_Study_MapMarkerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_Study_MapMarkerApp.swift; sourceTree = "<group>"; };
-		07F5AE072A1DDEDF00C62BA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		07F5AE072A1DDEDF00C62BA5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		07F5AE092A1DDEE000C62BA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07F5AE0C2A1DDEE000C62BA5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		07F5AE132A1DE49F00C62BA5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		07F5AE152A1DE98C00C62BA5 /* MapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewRepresentable.swift; sourceTree = "<group>"; };
+		07F5AE192A1DEBC800C62BA5 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		36AEF18438735CAFD2B29858 /* Pods_SwiftUI_Study_MapMarker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftUI_Study_MapMarker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F8AD1246F25AB02220EBC7C /* Pods-SwiftUI_Study_MapMarker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUI_Study_MapMarker.release.xcconfig"; path = "Target Support Files/Pods-SwiftUI_Study_MapMarker/Pods-SwiftUI_Study_MapMarker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFAD472155E19AC39C08BA16 /* Pods_SwiftUI_Study_MapMarker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +48,8 @@
 			children = (
 				07F5AE042A1DDEDF00C62BA5 /* SwiftUI_Study_MapMarker */,
 				07F5AE032A1DDEDF00C62BA5 /* Products */,
+				0B9154D1211E10616C0457AD /* Pods */,
+				35D1A59E054AB2020F7AFE58 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,10 +64,12 @@
 		07F5AE042A1DDEDF00C62BA5 /* SwiftUI_Study_MapMarker */ = {
 			isa = PBXGroup;
 			children = (
-				07F5AE052A1DDEDF00C62BA5 /* SwiftUI_Study_MapMarkerApp.swift */,
-				07F5AE072A1DDEDF00C62BA5 /* ContentView.swift */,
+				07F5AE1B2A1DF29100C62BA5 /* App */,
+				07F5AE182A1DEBBB00C62BA5 /* Managers */,
+				07F5AE172A1DE9A300C62BA5 /* View */,
 				07F5AE092A1DDEE000C62BA5 /* Assets.xcassets */,
 				07F5AE0B2A1DDEE000C62BA5 /* Preview Content */,
+				07F5AE132A1DE49F00C62BA5 /* Constants.swift */,
 			);
 			path = SwiftUI_Study_MapMarker;
 			sourceTree = "<group>";
@@ -67,6 +82,48 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		07F5AE172A1DE9A300C62BA5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				07F5AE072A1DDEDF00C62BA5 /* HomeView.swift */,
+				07F5AE152A1DE98C00C62BA5 /* MapViewRepresentable.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		07F5AE182A1DEBBB00C62BA5 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				07F5AE192A1DEBC800C62BA5 /* LocationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		07F5AE1B2A1DF29100C62BA5 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				07F5AE052A1DDEDF00C62BA5 /* SwiftUI_Study_MapMarkerApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0B9154D1211E10616C0457AD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				01E600A9E574DFA5FA614C5E /* Pods-SwiftUI_Study_MapMarker.debug.xcconfig */,
+				8F8AD1246F25AB02220EBC7C /* Pods-SwiftUI_Study_MapMarker.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		35D1A59E054AB2020F7AFE58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				36AEF18438735CAFD2B29858 /* Pods_SwiftUI_Study_MapMarker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +131,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07F5AE102A1DDEE000C62BA5 /* Build configuration list for PBXNativeTarget "SwiftUI_Study_MapMarker" */;
 			buildPhases = (
+				50BA86C2F4B94582BBE78514 /* [CP] Check Pods Manifest.lock */,
 				07F5ADFE2A1DDEDF00C62BA5 /* Sources */,
 				07F5ADFF2A1DDEDF00C62BA5 /* Frameworks */,
 				07F5AE002A1DDEDF00C62BA5 /* Resources */,
+				6258AF205CABA19060E697ED /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,13 +191,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		50BA86C2F4B94582BBE78514 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftUI_Study_MapMarker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6258AF205CABA19060E697ED /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftUI_Study_MapMarker/Pods-SwiftUI_Study_MapMarker-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftUI_Study_MapMarker/Pods-SwiftUI_Study_MapMarker-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftUI_Study_MapMarker/Pods-SwiftUI_Study_MapMarker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		07F5ADFE2A1DDEDF00C62BA5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07F5AE082A1DDEDF00C62BA5 /* ContentView.swift in Sources */,
+				07F5AE082A1DDEDF00C62BA5 /* HomeView.swift in Sources */,
 				07F5AE062A1DDEDF00C62BA5 /* SwiftUI_Study_MapMarkerApp.swift in Sources */,
+				07F5AE1A2A1DEBC800C62BA5 /* LocationManager.swift in Sources */,
+				07F5AE162A1DE98C00C62BA5 /* MapViewRepresentable.swift in Sources */,
+				07F5AE142A1DE49F00C62BA5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +285,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -241,6 +346,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -261,6 +367,7 @@
 		};
 		07F5AE112A1DDEE000C62BA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01E600A9E574DFA5FA614C5E /* Pods-SwiftUI_Study_MapMarker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -269,7 +376,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI_Study_MapMarker/Preview Content\"";
 				DEVELOPMENT_TEAM = 7V2ZG69KPK;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 권한을 허용해주세요.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 권한을 허용해주세요.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -290,6 +400,7 @@
 		};
 		07F5AE122A1DDEE000C62BA5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F8AD1246F25AB02220EBC7C /* Pods-SwiftUI_Study_MapMarker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -298,7 +409,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI_Study_MapMarker/Preview Content\"";
 				DEVELOPMENT_TEAM = 7V2ZG69KPK;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 권한을 허용해주세요.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 권한을 허용해주세요.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
