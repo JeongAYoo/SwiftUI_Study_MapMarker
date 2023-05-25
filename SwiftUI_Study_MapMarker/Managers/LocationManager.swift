@@ -17,6 +17,10 @@ class LocationManager: NSObject, ObservableObject {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
+    
+    func getCurrentLocation() -> CLLocation {
+        return locationManager.location ?? CLLocation(latitude: 37.566508, longitude: 126.977945)
+    }
 }
 
 // MARK: - CLLocationManagerDelegate

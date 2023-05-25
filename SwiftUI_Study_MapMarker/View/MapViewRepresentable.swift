@@ -11,11 +11,20 @@ import GoogleMaps
 struct MapViewRepresentable: UIViewRepresentable {
     
     let mapView = GMSMapView()
+    let mapMarker = GMSMarker()
     let locationManager = LocationManager()
     
     func makeUIView(context: Context) -> some UIView {
         mapView.delegate = context.coordinator
         mapView.isUserInteractionEnabled = true
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
+        mapView.settings.compassButton = true
+        
+        let location = locationManager.getCurrentLocation()
+        print(location)
+        let camera = GMSCameraPosition(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 17)
+        mapView.camera = camera
         
         return mapView
     }
