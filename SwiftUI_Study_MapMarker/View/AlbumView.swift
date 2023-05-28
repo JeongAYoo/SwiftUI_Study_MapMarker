@@ -9,13 +9,10 @@ import SwiftUI
 import PhotosUI
 
 struct AlbumView: View {
-    @StateObject var viewModel = TravelImageViewModel()
+    @EnvironmentObject var viewModel: PhotoViewModel
     @State var showSheet = false
-    @State var selectedImage: UIImage?
-    @State var date: Date?
-    @State var location: CLLocationCoordinate2D?
     
-    let imageWidth = UIScreen.main.bounds.width / 3 - 3
+    let imageWidth = UIScreen.main.bounds.width / 3
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -25,15 +22,14 @@ struct AlbumView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                if let location = location {
-                    Text("Location: latitude \(location.latitude) longitude \(location.longitude)")
-                }
                 LazyVGrid(columns: columns) {
-                    ForEach(1..<100) { image in
-                        Image(systemName: "photo")
-                            .resizable()
-                            .frame(width: imageWidth, height: imageWidth)
-                            .scaledToFill()
+                    ForEach(viewModel.imageData, id: \.self.id) { imageData in
+                        if let newImage = imageData.image {
+                            Image(uiImage: newImage)
+                                .resizable()
+                                .frame(width: imageWidth, height: imageWidth)
+                                .scaledToFill()
+                        }
                     }
                 }
             }
@@ -44,7 +40,7 @@ struct AlbumView: View {
                 } label: {
                     Image(systemName: "plus")
                 }.sheet(isPresented: $showSheet) {
-                    PhotoPickerView(selectedImage: $selectedImage, date: $date, location: $location)
+                    PhotoPickerView()
                 }
             }
         }

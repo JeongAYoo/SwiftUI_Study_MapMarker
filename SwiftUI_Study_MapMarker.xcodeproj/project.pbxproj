@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		071FA5102A1E5E4400C7B362 /* TravelImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071FA50F2A1E5E4400C7B362 /* TravelImageViewModel.swift */; };
 		071FA5122A1F518500C7B362 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071FA5112A1F518500C7B362 /* PhotoPickerView.swift */; };
+		0763F8CE2A21E68400986263 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0763F8CD2A21E68400986263 /* PhotoViewModel.swift */; };
 		07F5AE062A1DDEDF00C62BA5 /* SwiftUI_Study_MapMarkerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F5AE052A1DDEDF00C62BA5 /* SwiftUI_Study_MapMarkerApp.swift */; };
 		07F5AE082A1DDEDF00C62BA5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F5AE072A1DDEDF00C62BA5 /* HomeView.swift */; };
 		07F5AE0A2A1DDEE000C62BA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F5AE092A1DDEE000C62BA5 /* Assets.xcassets */; };
@@ -22,8 +22,8 @@
 
 /* Begin PBXFileReference section */
 		01E600A9E574DFA5FA614C5E /* Pods-SwiftUI_Study_MapMarker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUI_Study_MapMarker.debug.xcconfig"; path = "Target Support Files/Pods-SwiftUI_Study_MapMarker/Pods-SwiftUI_Study_MapMarker.debug.xcconfig"; sourceTree = "<group>"; };
-		071FA50F2A1E5E4400C7B362 /* TravelImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelImageViewModel.swift; sourceTree = "<group>"; };
 		071FA5112A1F518500C7B362 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
+		0763F8CD2A21E68400986263 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
 		07F5AE022A1DDEDF00C62BA5 /* SwiftUI_Study_MapMarker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_Study_MapMarker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F5AE052A1DDEDF00C62BA5 /* SwiftUI_Study_MapMarkerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_Study_MapMarkerApp.swift; sourceTree = "<group>"; };
 		07F5AE072A1DDEDF00C62BA5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		071FA50E2A1E5E1800C7B362 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				071FA50F2A1E5E4400C7B362 /* TravelImageViewModel.swift */,
+				0763F8CD2A21E68400986263 /* PhotoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -153,7 +153,6 @@
 				07F5ADFF2A1DDEDF00C62BA5 /* Frameworks */,
 				07F5AE002A1DDEDF00C62BA5 /* Resources */,
 				6258AF205CABA19060E697ED /* [CP] Copy Pods Resources */,
-				55046964C7AAA4EB658EC894 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -232,23 +231,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		55046964C7AAA4EB658EC894 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftUI_Study_MapMarker/Pods-SwiftUI_Study_MapMarker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftUI_Study_MapMarker/Pods-SwiftUI_Study_MapMarker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftUI_Study_MapMarker/Pods-SwiftUI_Study_MapMarker-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6258AF205CABA19060E697ED /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -277,9 +259,9 @@
 				07F5AE082A1DDEDF00C62BA5 /* HomeView.swift in Sources */,
 				07F5AE062A1DDEDF00C62BA5 /* SwiftUI_Study_MapMarkerApp.swift in Sources */,
 				071FA5122A1F518500C7B362 /* PhotoPickerView.swift in Sources */,
+				0763F8CE2A21E68400986263 /* PhotoViewModel.swift in Sources */,
 				07F5AE1A2A1DEBC800C62BA5 /* LocationManager.swift in Sources */,
 				07F5AE162A1DE98C00C62BA5 /* MapViewRepresentable.swift in Sources */,
-				071FA5102A1E5E4400C7B362 /* TravelImageViewModel.swift in Sources */,
 				07F5AE142A1DE49F00C62BA5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -393,7 +375,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

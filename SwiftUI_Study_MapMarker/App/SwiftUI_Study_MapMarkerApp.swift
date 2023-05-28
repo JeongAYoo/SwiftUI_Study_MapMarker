@@ -10,6 +10,7 @@ import GoogleMaps
 
 @main
 struct SwiftUI_Study_MapMarkerApp: App {
+    @StateObject var viewModel = PhotoViewModel()
     init() {
         GMSServices.provideAPIKey(KEY.GM_API_KEY)
     }
@@ -17,6 +18,7 @@ struct SwiftUI_Study_MapMarkerApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environmentObject(viewModel)
         }
     }
 }

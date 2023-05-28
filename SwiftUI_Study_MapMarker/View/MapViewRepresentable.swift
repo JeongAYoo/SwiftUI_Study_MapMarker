@@ -9,9 +9,9 @@ import SwiftUI
 import GoogleMaps
 
 struct MapViewRepresentable: UIViewRepresentable {
+    @EnvironmentObject var viewModel: PhotoViewModel
     
     let mapView = GMSMapView()
-    let mapMarker = GMSMarker()
     let locationManager = LocationManager()
     
     func makeUIView(context: Context) -> some UIView {
@@ -23,13 +23,34 @@ struct MapViewRepresentable: UIViewRepresentable {
         
         let location = locationManager.getCurrentLocation()
         print(location)
-        let camera = GMSCameraPosition(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 17)
+        let camera = GMSCameraPosition(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 15)
         mapView.camera = camera
         
         return mapView
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
+        mapView.delegate = context.coordinator
+
+        print("updateUIView Called")
+        
+        // markers
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: +40.75921100, longitude: -73.98463800)
+        marker.icon = GMSMarker.markerImage(with: .red)
+        marker.map = mapView
+        print("Test Marker: \(marker)")
+        
+        for data in viewModel.imageData {
+            guard let location = data.location, let iconImage = data.image else {
+                continue
+            }
+            print("Marker At: \(location.latitude), \(location.longitude)")
+            let marker = GMSMarker(position: location)
+            marker.icon = GMSMarker.markerImage(with: .red)
+            marker.map = mapView
+            print(marker)
+        }
         
     }
     

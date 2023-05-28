@@ -10,10 +10,8 @@ import PhotosUI
 
 struct PhotoPickerView: UIViewControllerRepresentable {
         
-    @Binding var selectedImage: UIImage?
-    @Binding var date: Date?
-    @Binding var location: CLLocationCoordinate2D?
-    
+    @EnvironmentObject var viewModel: PhotoViewModel
+
     @Environment(\.presentationMode) var presentationMode
     
     func makeUIViewController(context: Context) -> PHPickerViewController {
@@ -34,6 +32,8 @@ struct PhotoPickerView: UIViewControllerRepresentable {
     }
     
     class Coordinator: PHPickerViewControllerDelegate {
+        private var model = ImageData()
+        
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
             parent.presentationMode.wrappedValue.dismiss()
             guard !results.isEmpty else {
@@ -44,10 +44,10 @@ struct PhotoPickerView: UIViewControllerRepresentable {
             
             if let assetId = imageResult.assetIdentifier {
                 let assetResults = PHAsset.fetchAssets(withLocalIdentifiers: [assetId], options: nil)
-                DispatchQueue.main.async {
-                    self.parent.date = assetResults.firstObject?.creationDate
-                    self.parent.location = assetResults.firstObject?.location?.coordinate
-                }
+                self.model.date = assetResults.firstObject?.creationDate
+                self.model.location = assetResults.firstObject?.location?.coordinate
+                print(self.model)
+
             }
             if imageResult.itemProvider.canLoadObject(ofClass: UIImage.self) {
                 imageResult.itemProvider.loadObject(ofClass: UIImage.self) { (selectedImage, error) in
@@ -55,7 +55,8 @@ struct PhotoPickerView: UIViewControllerRepresentable {
                         print(error.localizedDescription)
                     } else {
                         DispatchQueue.main.async {
-                            self.parent.selectedImage = selectedImage as? UIImage
+                            self.model.image = selectedImage as? UIImage
+                            self.parent.viewModel.imageData.append(self.model)
                         }
                     }
                 }
@@ -71,6 +72,6 @@ struct PhotoPickerView: UIViewControllerRepresentable {
 
 struct CustomPhotoPicker_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoPickerView(selectedImage: Binding.constant(nil), date: Binding.constant(nil), location: Binding.constant(nil))
+        PhotoPickerView()
     }
 }

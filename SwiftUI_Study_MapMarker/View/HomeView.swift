@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var viewModel: PhotoViewModel
+    
     var body: some View {
         TabView {
             MapViewRepresentable()
