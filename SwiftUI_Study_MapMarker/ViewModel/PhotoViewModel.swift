@@ -8,6 +8,9 @@
 import UIKit
 import CoreLocation
 
+/**
+ 기본 사진앱에서 가져온 이미지의 정보를 저장하기 위한 모델
+ */
 struct ImageData: Identifiable {
     var id = UUID()
     var image: UIImage?

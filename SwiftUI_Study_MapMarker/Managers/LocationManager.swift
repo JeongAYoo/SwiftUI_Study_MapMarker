@@ -7,6 +7,9 @@
 
 import CoreLocation
 
+/**
+ 유저의 현재 위치 정보를 가져오기 위한 클래스
+ */
 class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     
@@ -14,8 +17,8 @@ class LocationManager: NSObject, ObservableObject {
         super.init()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+        locationManager.requestWhenInUseAuthorization() // 권한 요청
+        locationManager.startUpdatingLocation() // 위치 업데이트 시작
     }
     
     func getCurrentLocation() -> CLLocation {
@@ -27,6 +30,6 @@ class LocationManager: NSObject, ObservableObject {
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard !locations.isEmpty else { return }
-        locationManager.stopUpdatingLocation()
+        locationManager.stopUpdatingLocation()  // 위치 업데이트 멈춤
     }
 }

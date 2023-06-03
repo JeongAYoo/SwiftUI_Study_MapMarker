@@ -11,6 +11,8 @@ import GoogleMaps
 @main
 struct SwiftUI_Study_MapMarkerApp: App {
     @StateObject var viewModel = PhotoViewModel()
+    
+    // 초기화 시 api key 전달
     init() {
         GMSServices.provideAPIKey(KEY.GM_API_KEY)
     }

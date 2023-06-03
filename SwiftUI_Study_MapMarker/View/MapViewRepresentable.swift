@@ -14,6 +14,7 @@ struct MapViewRepresentable: UIViewRepresentable {
     let mapView = GMSMapView()
     let locationManager = LocationManager()
     
+    // MARK: - Create & Update view
     func makeUIView(context: Context) -> some UIView {
         mapView.delegate = context.coordinator
         mapView.isUserInteractionEnabled = true
@@ -21,16 +22,17 @@ struct MapViewRepresentable: UIViewRepresentable {
         mapView.settings.myLocationButton = true
         mapView.settings.compassButton = true
         
+        // 유저의 현재 위치 가져오기, Camera 위치 설정
         let location = locationManager.getCurrentLocation()
-        print(location)
         let camera = GMSCameraPosition(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 15)
         mapView.camera = camera
         
         return mapView
     }
     
+    // view model 변경 시 호출됨
     func updateUIView(_ uiView: UIViewType, context: Context) {
-        context.coordinator.addMarkers()
+        context.coordinator.addMarkers()    // 마커 추가 함수 호출
     }
     
     func makeCoordinator() -> MapViewCoordinator {
@@ -60,20 +62,19 @@ extension MapViewRepresentable {
         
         // MARK: - Helpers
         func addMarkers() {
-            // Test markers
-//            let marker = GMSMarker()
-//            marker.position = CLLocationCoordinate2D(latitude: +40.75921100, longitude: -73.98463800)
-//            marker.icon = GMSMarker.markerImage(with: .red)
-//            marker.map = parent.mapView
-                        
             for data in parent.viewModel.imageData {
+                // imageData의 위치, 이미지 사용
                 guard let location = data.location, let iconImage = data.image else {
                     continue
                 }
+                
+                // 위치 좌표 출력
                 print("Marker At: \(location.latitude), \(location.longitude)")
                 
+                // Marker
                 let marker = GMSMarker(position: location)
                 
+                // marker icon image view
                 let iconImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
                 iconImageView.image = iconImage
                 iconImageView.contentMode = .scaleAspectFill

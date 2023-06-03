@@ -9,12 +9,12 @@ import SwiftUI
 import PhotosUI
 
 struct PhotoPickerView: UIViewControllerRepresentable {
-        
     @EnvironmentObject var viewModel: PhotoViewModel
-
     @Environment(\.presentationMode) var presentationMode
     
+    // MARK: - Create & Update view
     func makeUIViewController(context: Context) -> PHPickerViewController {
+        // 사진의 메타데이터를 가져오기 위해 PHPickerViewController 사용
         var config = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
         config.filter = .images
         config.selectionLimit = 1
@@ -23,17 +23,24 @@ struct PhotoPickerView: UIViewControllerRepresentable {
         return controller
     }
     
+    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
+    }
+    
     func makeCoordinator() -> PhotoPickerView.Coordinator {
         return Coordinator(self)
     }
     
-    
-    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
-    }
-    
     class Coordinator: PHPickerViewControllerDelegate {
+        // MARK: - Properties
         private var model = ImageData()
+        private let parent: PhotoPickerView
         
+        // MARK: - Initializer
+        init(_ parent: PhotoPickerView) {
+            self.parent = parent
+        }
+        
+        // MARK: - PHPickerViewControllerDelegate
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
             parent.presentationMode.wrappedValue.dismiss()
             guard !results.isEmpty else {
@@ -49,6 +56,7 @@ struct PhotoPickerView: UIViewControllerRepresentable {
                 print(self.model)
 
             }
+            
             if imageResult.itemProvider.canLoadObject(ofClass: UIImage.self) {
                 imageResult.itemProvider.loadObject(ofClass: UIImage.self) { (selectedImage, error) in
                     if let error = error {
@@ -62,14 +70,10 @@ struct PhotoPickerView: UIViewControllerRepresentable {
                 }
             }
         }
-        
-        private let parent: PhotoPickerView
-        init(_ parent: PhotoPickerView) {
-            self.parent = parent
-        }
     }
 }
 
+// MARK: - Preview
 struct CustomPhotoPicker_Previews: PreviewProvider {
     static var previews: some View {
         PhotoPickerView()

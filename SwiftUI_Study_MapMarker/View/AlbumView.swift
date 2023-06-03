@@ -39,7 +39,7 @@ struct AlbumView: View {
             }
             .navigationTitle("Album")
             .toolbar {
-                // navigation + button
+                // navigation button
                 Button {
                     showSheet.toggle()
                 } label: {
