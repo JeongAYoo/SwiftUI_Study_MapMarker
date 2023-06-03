@@ -30,28 +30,7 @@ struct MapViewRepresentable: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
-        mapView.delegate = context.coordinator
-
-        print("updateUIView Called")
-        
-        // markers
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: +40.75921100, longitude: -73.98463800)
-        marker.icon = GMSMarker.markerImage(with: .red)
-        marker.map = mapView
-        print("Test Marker: \(marker)")
-        
-        for data in viewModel.imageData {
-            guard let location = data.location, let iconImage = data.image else {
-                continue
-            }
-            print("Marker At: \(location.latitude), \(location.longitude)")
-            let marker = GMSMarker(position: location)
-            marker.icon = GMSMarker.markerImage(with: .red)
-            marker.map = mapView
-            print(marker)
-        }
-        
+        context.coordinator.addMarkers()
     }
     
     func makeCoordinator() -> MapViewCoordinator {
@@ -61,12 +40,15 @@ struct MapViewRepresentable: UIViewRepresentable {
 
 extension MapViewRepresentable {
     class MapViewCoordinator: NSObject, GMSMapViewDelegate {
-        var mapView: MapViewRepresentable
+        // MARK: - Properties
+        var parent: MapViewRepresentable
         
-        init(_ mapView: MapViewRepresentable) {
-            self.mapView = mapView
+        // MARK: - Life cycle
+        init(_ parent: MapViewRepresentable) {
+            self.parent = parent
         }
         
+        // MARK: - GMSMapViewDelegate
         func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
             //      let marker = GMSMarker(position: coordinate)
             //      self.mapView.polygonPath.append(marker)
@@ -74,6 +56,36 @@ extension MapViewRepresentable {
         
         func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
 //            self.mapView.onAnimationEnded()
+        }
+        
+        // MARK: - Helpers
+        func addMarkers() {
+            // Test markers
+//            let marker = GMSMarker()
+//            marker.position = CLLocationCoordinate2D(latitude: +40.75921100, longitude: -73.98463800)
+//            marker.icon = GMSMarker.markerImage(with: .red)
+//            marker.map = parent.mapView
+                        
+            for data in parent.viewModel.imageData {
+                guard let location = data.location, let iconImage = data.image else {
+                    continue
+                }
+                print("Marker At: \(location.latitude), \(location.longitude)")
+                
+                let marker = GMSMarker(position: location)
+                
+                let iconImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+                iconImageView.image = iconImage
+                iconImageView.contentMode = .scaleAspectFill
+                iconImageView.layer.borderWidth = 2
+                iconImageView.layer.borderColor = UIColor.white.cgColor
+                iconImageView.layer.cornerRadius = 8
+                iconImageView.layer.masksToBounds = true    // 이미지도 둥글게
+                marker.iconView = iconImageView
+                
+                marker.map = parent.mapView
+            }
+            
         }
     }
 }

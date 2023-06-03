@@ -12,29 +12,34 @@ struct AlbumView: View {
     @EnvironmentObject var viewModel: PhotoViewModel
     @State var showSheet = false
     
+    /// 화면크기의 1/3
     let imageWidth = UIScreen.main.bounds.width / 3
+    /// 그리드에 나타낼 컬럼
+    /// spacing을 0으로, 대신 이미지에 보더 설정
     let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible())
+        GridItem(.flexible(), spacing: 0),
+        GridItem(.flexible(), spacing: 0),
+        GridItem(.flexible(), spacing: 0)
     ]
     
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: columns) {
+                LazyVGrid(columns: columns, spacing: 0) {
                     ForEach(viewModel.imageData, id: \.self.id) { imageData in
                         if let newImage = imageData.image {
                             Image(uiImage: newImage)
                                 .resizable()
                                 .frame(width: imageWidth, height: imageWidth)
-                                .scaledToFill()
+                                .scaledToFit()
+                                .border(.white)
                         }
                     }
                 }
             }
             .navigationTitle("Album")
             .toolbar {
+                // navigation + button
                 Button {
                     showSheet.toggle()
                 } label: {
